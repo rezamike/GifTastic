@@ -1,15 +1,42 @@
 $("document").ready(function () {
 
+    // build array for preloaded buttons (topics)
+    var food = [
+        "sushi",
+        "sandwich",
+        "pizza",
+        "ramen",
+        "steak",
+        "burrito"
+    ];
+
+    // global on-click/var for search terms to dom
+    $("#addFood").on("click", function (event) {
+        var searchBtn = $("#food-input").val();
+        console.log(searchBtn);
+        event.preventDefault();
+        food.push(searchBtn);
+    })
+
+
+    // for loop to run through food array
+    for (var i = 0; i < food.length; i++) {
+        var foodBtn = $("<button>").attr("data-food", food[i]);
+        $(foodBtn).text(food[i]);
+
+        // create the buttons
+        $("#searchButtons").append(foodBtn);
+
+    }
+
+
     // build function for on.click
-    $("button").on("click", function () {
+    $("button" + i).on("click", function () {
 
         // build var for each of the buttons
-        var animal = $(this).attr()
+        
 
         // create ajax get
-
-
-        // global var for search terms to dom
 
 
         // var for image property
