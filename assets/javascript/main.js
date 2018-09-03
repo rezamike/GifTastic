@@ -9,33 +9,59 @@ $("document").ready(function () {
         "steak",
         "burrito",
     ];
-    var apiKey = "Slxk7tck3X7EpB9VouJWIMx6gh04Vq3C";
 
-    buildBtn();
 
-    $(".foods").on("click", function foodInfo() {
-            var food = $(this).attr("data-food");
-            var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + food + "&api_key=" + apiKey + "&limit=10";
+    // function for grabbing food from button
+    function foodCall() {
+        var food = $(this).attr("data-food");
+        var apiKey = "Slxk7tck3X7EpB9VouJWIMx6gh04Vq3C";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + food + "&api_key=" + apiKey + "&limit=10";
 
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(function (response) {
-                var foodDiv = $("<div class='food'>");
+        // ajax call
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            var results = response.data;
 
-                var rating = response.rating;
+            // div to hold gif stuff
+            var foodDiv = $("<div class='food'>");
+
+            for (var i = 0; i < results.length; i++) {
+
+                // var for rating
+                var rating = results[i].rating;
                 var pRating = $("<p>").text("Rating: " + rating);
                 foodDiv.append(pRating);
 
-                var imgUrl = response.images.original.url;
+                // var for images
+                var imgUrl = results[i].images.fixed_width.url;
                 var image = $("<img>").attr("src", imgUrl)
                 foodDiv.append(image);
-                console.log(imgUrl)
+            }
 
-                $(".showRoom").append(foodDiv);
+            // prepend info into dom
+            $(".showRoom").html(foodDiv);
 
-            })
-    })
+        })
+    }
+
+
+    // for loop to run through food array
+    function buildBtn() {
+        $(".searchButtons").empty();
+
+        // loop through array
+        for (var i = 0; i < food.length; i++) {
+            var foodBtn = $("<button>")
+            foodBtn.attr("data-food", food[i]);
+            foodBtn.addClass("foodsBtn")
+            foodBtn.text(food[i]);
+
+            // create the buttons
+            $(".searchButtons").append(foodBtn);
+        }
+    }
 
 
     // global on-click/var for search terms to dom
@@ -48,45 +74,17 @@ $("document").ready(function () {
         else {
             food.push(searchBtn);
         }
-        if (!(searchBtn in food)) {
-            alert("You already typed that one!");
-        }
+        // if (!(searchBtn in food)) {
+        //     alert("You already typed that one!");
+        // }
         buildBtn();
     })
 
 
-    // for loop to run through food array
-    function buildBtn() {
-        $("#searchButtons").empty();
-        for (var i = 0; i < food.length; i++) {
-            var foodBtn = $("<button>").attr("data-food", food[i]);
-            foodBtn.attr("class", "foods")
-            $(foodBtn).text(food[i]);
 
-            // create the buttons
-            $("#searchButtons").append(foodBtn);
-
-        }
-    }
 
     // build function for on.click
-    $("button").on("click", function () {
+    $(document).on("click", ".foodsBtn", foodCall);
+    buildBtn();
 
-        // build var for each of the buttons
-
-
-        // create ajax get
-
-
-        // var for image property
-
-
-        // creating image tag
-
-
-        // setting attributs to the dom
-
-
-        // prepending everything
-    })
 })
