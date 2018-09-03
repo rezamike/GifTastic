@@ -35,7 +35,7 @@ $("document").ready(function () {
                 // var for rating
                 var rating = results[i].rating;
                 var pRating = $("<p>").text("Rating: " + rating);
-                
+
                 gifDiv.append(pRating);
 
                 // var for images, including still/animate information
@@ -98,12 +98,12 @@ $("document").ready(function () {
         if (searchBtn === "") {
             alert("Empty!");
         }
+        // else if (searchBtn != food) {
+        //     alert("You already typed that one!");
+        // }
         else {
             food.push(searchBtn);
         }
-        // if (!(searchBtn in food)) {
-        //     alert("You already typed that one!");
-        // }
         buildBtn();
     })
 

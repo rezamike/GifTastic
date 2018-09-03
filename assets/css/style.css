@@ -1,12 +1,19 @@
 body {
     box-sizing: border-box;
     position: relative;
-    background-image: url("../images/restaurant.jpg")
+    height: 1500px;
+    background-image: url("../images/restaurant.png");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+}
+
+.searchButtons {
+    margin-top: 20px;
 }
 
 label {
     padding: 5px;
-    color: white;
+    color: black;
     text-align: center;
     margin: auto;
     font-style: italic;
@@ -25,6 +32,7 @@ label {
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+    margin-top: 50px;
 }
 
 img {
