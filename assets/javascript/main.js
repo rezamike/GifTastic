@@ -29,10 +29,14 @@ $("document").ready(function () {
 
             for (var i = 0; i < results.length; i++) {
 
+                // div per giv situation
+                var gifDiv = $("<div class='gifdiv'>")
+
                 // var for rating
                 var rating = results[i].rating;
                 var pRating = $("<p>").text("Rating: " + rating);
-                foodDiv.prepend(pRating);
+                
+                gifDiv.append(pRating);
 
                 // var for images, including still/animate information
                 var imgAnimate = results[i].images.fixed_width.url;
@@ -43,7 +47,9 @@ $("document").ready(function () {
                 image.attr("data-animate", imgAnimate);
                 image.addClass("gif");
                 image.attr("data-state", "still");
-                foodDiv.prepend(image);
+                gifDiv.append(image);
+
+                foodDiv.append(gifDiv);
             }
 
             // prepend info into dom

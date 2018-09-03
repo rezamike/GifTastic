@@ -1,15 +1,57 @@
 body {
     box-sizing: border-box;
     position: relative;
+    background-image: url("../images/restaurant.jpg")
+}
+
+label {
+    padding: 5px;
+    color: white;
+    text-align: center;
+    margin: auto;
+    font-style: italic;
+    overflow: auto;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px teal;
+}
+
+#food-input {
+    width: 100%;
+    margin: auto;
 }
 
 .food {
     padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 img {
-    padding: 5px;
+    padding-bottom: 5px;
 }
 
-p {
+.gifdiv {
+    padding: 10px;
+    margin: 10px;
+    border: 1px white solid;
+    background-color: teal;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+button, #addFood {
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    background-color: teal;
+    text-align: center;
+    font-weight: bold;
+}
+
+#addFood {
+    float: right;
 }
