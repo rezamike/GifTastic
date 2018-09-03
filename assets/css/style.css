@@ -3,8 +3,9 @@ body {
     position: relative;
     height: 1500px;
     background-image: url("../images/restaurant.png");
-    background-repeat: no-repeat;
-    background-size: auto 100%;
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
 }
 
 .searchButtons {
@@ -13,7 +14,7 @@ body {
 
 label {
     padding: 5px;
-    color: black;
+    color: white;
     text-align: center;
     margin: auto;
     font-style: italic;
@@ -63,3 +64,15 @@ button, #addFood {
 #addFood {
     float: right;
 }
+
+/* @media screen and (max-width: 950px) {
+    [class*="col-"] {
+        width: 100%;
+    }
+
+    body {
+        height: 3000px;
+        background-repeat: no-repeat;
+        background-size: auto 100%;  
+    }
+} */
