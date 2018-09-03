@@ -32,17 +32,38 @@ $("document").ready(function () {
                 // var for rating
                 var rating = results[i].rating;
                 var pRating = $("<p>").text("Rating: " + rating);
-                foodDiv.append(pRating);
+                foodDiv.prepend(pRating);
 
-                // var for images
-                var imgUrl = results[i].images.fixed_width.url;
-                var image = $("<img>").attr("src", imgUrl)
-                foodDiv.append(image);
+                // var for images, including still/animate information
+                var imgAnimate = results[i].images.fixed_width.url;
+                var imgStill = results[i].images.fixed_width_still.url;
+                var image = $("<img>")
+                image.attr("src", imgStill);
+                image.attr("data-still", imgStill);
+                image.attr("data-animate", imgAnimate);
+                image.addClass("gif");
+                image.attr("data-state", "still");
+                foodDiv.prepend(image);
             }
 
             // prepend info into dom
             $(".showRoom").html(foodDiv);
 
+
+            // image click function
+            $(".gif").on("click", function () {
+                var state = $(this).attr("data-state");
+
+                if (state === "still") {
+                    $(this).attr("src", $(this).attr("data-animate"));
+                    $(this).attr("data-state", "animate");
+                }
+
+                else {
+                    $(this).attr("src", $(this).attr("data-still"));
+                    $(this).attr("data-state", "still");
+                }
+            })
         })
     }
 
@@ -53,7 +74,7 @@ $("document").ready(function () {
 
         // loop through array
         for (var i = 0; i < food.length; i++) {
-            var foodBtn = $("<button>")
+            var foodBtn = $("<button>");
             foodBtn.attr("data-food", food[i]);
             foodBtn.addClass("foodsBtn")
             foodBtn.text(food[i]);

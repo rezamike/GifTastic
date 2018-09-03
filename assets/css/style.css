@@ -3,5 +3,13 @@ body {
     position: relative;
 }
 
-.showRoom {
+.food {
+    padding: 10px;
+}
+
+img {
+    padding: 5px;
+}
+
+p {
 }
