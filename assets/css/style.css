@@ -2,9 +2,8 @@ body {
     box-sizing: border-box;
     position: relative;
     background-image: url("../images/restaurant.png");
-    background-size: cover;
+    background-attachment: fixed;
     font-family: 'Josefin Sans', sans-serif;
-
 }
 
 h1 {
