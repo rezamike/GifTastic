@@ -7,6 +7,16 @@ body {
 
 }
 
+h1 {
+    text-align: center;
+    color: teal;
+    text-shadow: 2px 2px 5px white;
+    font-size: 48px;
+    font-weight: bold;
+    padding: 25px;
+    margin: auto;
+}
+
 .searchButtons {
     margin-top: 20px;
 }
