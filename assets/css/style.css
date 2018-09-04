@@ -1,15 +1,28 @@
 body {
     box-sizing: border-box;
     position: relative;
-    height: 1500px;
     background-image: url("../images/restaurant.png");
-    min-height: 100%;
-    background-position: center;
     background-size: cover;
+    font-family: 'Josefin Sans', sans-serif;
+
 }
 
 .searchButtons {
     margin-top: 20px;
+}
+
+.searchRow {
+    display: block;
+}
+
+#searchArea {
+    padding: 5px;
+    margin: 10px;
+}
+
+.showRoom {
+    margin-top: 50px;
+    padding: 5px;
 }
 
 label {
@@ -48,6 +61,10 @@ img {
     color: white;
     text-align: center;
     font-weight: bold;
+}
+
+.search {
+    float: right;
 }
 
 button, #addFood {
